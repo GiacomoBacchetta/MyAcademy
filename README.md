@@ -39,7 +39,7 @@ Feel free to explore each section based on your interests. Each topic will have 
 ## Contact Information
 
 - **Name:** Giacomo Bacchetta
-- **LinkedIn:** [Giacomo Bacchetta LinkedIn](https://www.linkedin.com/in/giacomo-bacchetta)
+- **LinkedIn:** [Giacomo Bacchetta LinkedIn](https://www.linkedin.com/in/giacomobacchetta)
 - **Email:** giacomo.bacchetta4@gmail.com
 
 ## Acknowledgments
