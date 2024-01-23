@@ -83,3 +83,20 @@ $L_i = -log P(Y = y_i)(X = x_i) = -log \frac{e^{s_{y_i}}}{\sum_{j}{e^{s_j}}}$
 where
 
 $s = f(x_i, W)$
+
+---
+But how can we find the W, the set of weights, which minimizes the loss function? Thanks to **optimization**. Optimization is like finding the lowest point in a mountain valley. Now, with the loss function we saw, it may seem simple, but with neural networks, especially with deep neural networks, the loss function becomes more complex than these.
+
+A first idea solution is *random search*, attempting to guess the set of weights.
+
+Another bad idea is *complete enumeration*, trying every possible set of weights, but it has a problem with computing time.
+
+Another strategy can be *following the slope*. Thanks to *gradient computation*, the vector of the partial derivatives of a function (the loss function, in our case), the direction of steepest descent is the negative gradient.
+
+**Gradient descent** is a very powerful method to update the weights of the neural network. We first need to initialize W and then update W in each iteration to reach the minimum area of the Loss Function.
+
+\[W = W - \text{{step-size}} \times \text{{gradient}}_W\]
+
+and the step size is commonly known as **learning rate** $\eta$.
+
+A different version of this method is **Stochastic Gradient Descent** (SGD).
