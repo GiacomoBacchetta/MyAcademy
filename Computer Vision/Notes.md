@@ -2,14 +2,14 @@
 
 These notes about the Computer Vision are suggested by the [Stanford Course CS231N](https://www.youtube.com/playlist?list=PLf7L7Kg8_FNxHATtLwDceyh72QQL9pvpQ).
 
-## Lesson 1
+## Lesson 1 - Introduction to Convolutional Neural Networks for Visual Recognition
 In this lesson, Professor Fei-Fei Li presented the history of computer vision practices. One of the key focuses in computer vision is understanding how to translate images into mathematical representations. One approach involves conceptualizing real-world objects as assemblies of shapes, such as cylinders, or as assemblies of edges and points.
 
 Moreover, a significant portion of the problems addressed in this field revolves around *classification tasks*. If colors play a crucial role in conveying important features within an image, the RGB (Red, Green, Blue) color encoding scheme can be employed. This encoding facilitates the representation of an image as a three-dimensional matrix, where the dimensions correspond to height, width, and RGB values.
 
 To further elaborate on this introductory overview, it's essential to recognize that computer vision extends beyond classification problems. Object detection, segmentation, and image captioning are additional areas within the discipline that contribute to a comprehensive understanding of visual data. Additionally, advancements in deep learning techniques, particularly **convolutional neural networks** (CNNs), have significantly enhanced the capabilities of computer vision systems in recent years. These networks excel at automatically learning hierarchical features from images, making them highly effective for various tasks, including image recognition and object detection.
 
-## Lesson 2
+## Lesson 2 - Image Classification
 
 Recognizing objects like a cat in an image poses a formidable challenge, often necessitating a data-driven approach comprising both a training phase and a prediction phase. Deep learning, and specifically convolutional neural networks (CNNs), emerge as a powerful solution.
 
@@ -37,7 +37,8 @@ where $m$ is the cardinality of the output set. To execute this operation, we ne
 
 However, a linear classifier works only if the dataset is linearly separable. This is why we introduce neural networks.
 
-## Lesson 3
+## Lesson 3 - Loss Functions and Optimization
+
 Before delving deep into deep learning, it's important to understand how a data-driven training process works. At each training iteration, we aim for a new and improved set of parameters for our classification function. But how and why do we modify these weights? Thanks to the **optimization of the loss function**, a measure of how well our algorithm performs.
 
 $ L = \frac{1}{N} \sum_i{L_i(f(x_i, W), y_i)} $
@@ -84,7 +85,6 @@ where
 
 $s = f(x_i, W)$
 
----
 But how can we find the W, the set of weights, which minimizes the loss function? Thanks to **optimization**. Optimization is like finding the lowest point in a mountain valley. Now, with the loss function we saw, it may seem simple, but with neural networks, especially with deep neural networks, the loss function becomes more complex than these.
 
 A first idea solution is *random search*, attempting to guess the set of weights.
@@ -100,3 +100,10 @@ Another strategy can be *following the slope*. Thanks to *gradient computation*,
 and the step size is commonly known as **learning rate** $\eta$.
 
 A different version of this method is **Stochastic Gradient Descent** (SGD).
+
+## Lesson 4 - Introduction to Neaural Networks
+How we saw in the previous lesson, the most useful method used to compute the optimal set of weights W is the gradient descent.
+Also, we said that it is very difficult to compute when the loss function, which is the function to be minimized, become more complex, as in the neural networks.
+To understand the derivative of a complex function, we can think about the computational graphs. In fact, a function can be represented by a graph where each operation is a node .
+This is a first approach to the **backpropagation**, a recursive application of the chain derivative rule.
+Thanks to this we will able to identify the exact weight responsbile for a bad prediction, and then modify it.
