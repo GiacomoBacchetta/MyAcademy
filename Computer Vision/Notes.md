@@ -41,7 +41,7 @@ However, a linear classifier works only if the dataset is linearly separable. Th
 
 Before delving deep into deep learning, it's important to understand how a data-driven training process works. At each training iteration, we aim for a new and improved set of parameters for our classification function. But how and why do we modify these weights? Thanks to the **optimization of the loss function**, a measure of how well our algorithm performs.
 
-\[ L = \frac{1}{N} \sum_i{L_i(f(x_i, W), y_i)} \]
+$L = \frac{1}{N} \sum_i L_i(f(x_i, W), y_i)$
 
 where $x_i$ is the i-th image, and $y_i$ is its integer label in the ground truth.
 
