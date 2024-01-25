@@ -110,21 +110,41 @@ Thanks to this we will able to identify the exact weight responsbile for a bad p
 
 ## Lecture 5 - Convolutional Neural Networks
 
-Let's to deep into the Convolutional Neural Networks works but firt from a functional perspective. 
-The main idea is:
-1. Convert the image into a multi-dimensional array;
-2. Use this array as input od a fully connected layer with weights which can be optimized;
-3. Use the output fot the activation function of the output layer and make the prediction we want to do.
+# Convolutional Neural Networks (CNNs) Overview
 
-![Alt text](image_1.png)
+In the context of Convolutional Neural Networks (CNNs), the primary objective is to process images efficiently for subsequent classification or prediction tasks. Let's delve into the functional perspective of CNNs and their key components.
 
-Thi first part of this kind of neural network, the part in which there is the preprocessing of the image and it's translation in a flatten array as input of the fully connected layer is the **Convolutional Layer**.
-We said that the first input is a, for example, a 32x32x3 image, which preserve the spatial structure (each pixel is characterized by the RGB 3-dimensional vector). 
-We need to reduce the structure.
-Firstly we are goiung to user a **Convolutional Filter** (e.g. 5x5x3 filter)which slide over the image spatially, computing dot products.
-Thanks to these operation we are able to reduce the dimensionality and to obtain an **activation map**, which is, in our current example, only 28x28x1.
-![Alt text](image_2.png)
-But we apply more then one filter.
-![Alt text](image_3.png)
-And this Convolutional Layer can be multiplied, one after ohter.
-In this way we are going to create an hiearchy of image's information. The first layer is responsible of low-level feature, the layer more distant is responsble of high-level features.
+Here is the functional workflow:
+1. **Image to Multi-dimensional Array:**
+   - Convert the input image into a multi-dimensional array.
+   - For instance, consider a 32x32x3 image, where each pixel is represented by an RGB 3-dimensional vector.
+
+2. **Flatten Array as Fully Connected Layer Input:**
+   - Utilize this multi-dimensional array as the input for a fully connected layer with adjustable weights.
+   - The weights in this layer are optimized during the training process.
+
+3. **Activation Function for Prediction:**
+   - Apply an activation function to the output of the fully connected layer to obtain the final prediction.
+
+![Functional Workflow](image_1.png)
+
+The **Convolutional Layer** plays a crucial role in the CNN by reducing the spatial structure of the input image while preserving essential features. This layer involves the use of Convolutional Filters, which slide over the image and compute dot products to generate activation maps.
+This layer has two goals:
+   - Employ a Convolutional Filter (e.g., 5x5x3) that traverses the image spatially, performing dot product computations.
+   - This operation results in an activation map, such as a 28x28x1 map in the provided example.
+
+![Convolutional Filter Operation](image_2.png)
+
+But in a **Convolutional Neural Networks**, we have to use more than one filter in a Convolutional Layer:
+   - Utilize multiple filters with distinct purposes, such as detecting edges, curves, or analyzing depth.
+   - Each filter contributes to extracting specific features from the input image.
+A filter can be set in very different ways: we can set parameters such as *stride* and *padding*. *Stride* refers to the step the filter takes at each iteration while sliding on the Activation Map in input; *Padding* is the border of the Convolutional Filter (usually, we work with zero-padding).
+
+![Multiple Filters](image_3.png)
+
+To use more filter has the following consequences:
+   - Stack Convolutional Layers to create a hierarchy of information extraction.
+   - Lower layers capture low-level features, while higher layers focus on high-level features.
+
+---
+After a sequence of different of several Convolutional Layer, we are ready to pass the information to the last part of our CNN, the **fully connected laer**, which has the purpose to make the effective rpediction, or classification, for the image in input.
