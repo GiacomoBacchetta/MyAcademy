@@ -41,7 +41,7 @@ However, a linear classifier works only if the dataset is linearly separable. Th
 
 Before delving deep into deep learning, it's important to understand how a data-driven training process works. At each training iteration, we aim for a new and improved set of parameters for our classification function. But how and why do we modify these weights? Thanks to the **optimization of the loss function**, a measure of how well our algorithm performs.
 
-$ L = \frac{1}{N} \sum_i{L_i(f(x_i, W), y_i)} $
+\[ L = \frac{1}{N} \sum_i{L_i(f(x_i, W), y_i)} \]
 
 where $x_i$ is the i-th image, and $y_i$ is its integer label in the ground truth.
 
@@ -59,7 +59,7 @@ $L_i = \sum_{j \neq y_i}{\max{0, s_j - s_{y_i} + 1}}$
 
 and its shape looks like the *Hinge loss*:
 
-![Hinge Loss](data:image/png;base64,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)
+![Hinge Loss](https://media.geeksforgeeks.org/wp-content/uploads/20231109124420/1-(1).png)
 
 After calculating the SVM loss for each data point in the entire training dataset, we obtain the overall loss, which is the average of the individually calculated SVM losses.
 
@@ -126,21 +126,21 @@ Here is the functional workflow:
 3. **Activation Function for Prediction:**
    - Apply an activation function to the output of the fully connected layer to obtain the final prediction.
 
-![Functional Workflow](image_1.png)
+![Functional Workflow](https://miro.medium.com/v2/resize:fit:1200/1*XbuW8WuRrAY5pC4t-9DZAQ.jpeg)
 
 The **Convolutional Layer** plays a crucial role in the CNN by reducing the spatial structure of the input image while preserving essential features. This layer involves the use of Convolutional Filters, which slide over the image and compute dot products to generate activation maps.
 This layer has two goals:
    - Employ a Convolutional Filter (e.g., 5x5x3) that traverses the image spatially, performing dot product computations.
    - This operation results in an activation map, such as a 28x28x1 map in the provided example.
 
-![Convolutional Filter Operation](image_2.png)
+![Convolutional Filter Operation](https://miro.medium.com/v2/resize:fit:1400/1*EQe39aT2EIrjGDG3v5Burg.png)
 
 But in a **Convolutional Neural Networks**, we have to use more than one filter in a Convolutional Layer:
    - Utilize multiple filters with distinct purposes, such as detecting edges, curves, or analyzing depth.
    - Each filter contributes to extracting specific features from the input image.
 A filter can be set in very different ways: we can set parameters such as *stride* and *padding*. *Stride* refers to the step the filter takes at each iteration while sliding on the Activation Map in input; *Padding* is the border of the Convolutional Filter (usually, we work with zero-padding).
 
-![Multiple Filters](image_3.png)
+![Multiple Filters](https://indoml.files.wordpress.com/2018/03/convolution-with-multiple-filters2.png?w=736)
 
 To use more filter has the following consequences:
    - Stack Convolutional Layers to create a hierarchy of information extraction.
