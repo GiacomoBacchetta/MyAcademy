@@ -152,3 +152,8 @@ cython_debug/
 #.idea/
 # .Reinforcement Learning
 # Reinforcement Learning/
+.png
+# /"Computer Vision"/*.png
+/Computer Vision/*.png
+# /Reinforcement Learning/*.py
+

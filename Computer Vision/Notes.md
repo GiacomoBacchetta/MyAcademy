@@ -2,14 +2,14 @@
 
 These notes about the Computer Vision are suggested by the [Stanford Course CS231N](https://www.youtube.com/playlist?list=PLf7L7Kg8_FNxHATtLwDceyh72QQL9pvpQ).
 
-## Lesson 1 - Introduction to Convolutional Neural Networks for Visual Recognition
-In this lesson, Professor Fei-Fei Li presented the history of computer vision practices. One of the key focuses in computer vision is understanding how to translate images into mathematical representations. One approach involves conceptualizing real-world objects as assemblies of shapes, such as cylinders, or as assemblies of edges and points.
+## Lecture 1 - Introduction to Convolutional Neural Networks for Visual Recognition
+In this Lecture, Professor Fei-Fei Li presented the history of computer vision practices. One of the key focuses in computer vision is understanding how to translate images into mathematical representations. One approach involves conceptualizing real-world objects as assemblies of shapes, such as cylinders, or as assemblies of edges and points.
 
 Moreover, a significant portion of the problems addressed in this field revolves around *classification tasks*. If colors play a crucial role in conveying important features within an image, the RGB (Red, Green, Blue) color encoding scheme can be employed. This encoding facilitates the representation of an image as a three-dimensional matrix, where the dimensions correspond to height, width, and RGB values.
 
 To further elaborate on this introductory overview, it's essential to recognize that computer vision extends beyond classification problems. Object detection, segmentation, and image captioning are additional areas within the discipline that contribute to a comprehensive understanding of visual data. Additionally, advancements in deep learning techniques, particularly **convolutional neural networks** (CNNs), have significantly enhanced the capabilities of computer vision systems in recent years. These networks excel at automatically learning hierarchical features from images, making them highly effective for various tasks, including image recognition and object detection.
 
-## Lesson 2 - Image Classification
+## Lecture 2 - Image Classification
 
 Recognizing objects like a cat in an image poses a formidable challenge, often necessitating a data-driven approach comprising both a training phase and a prediction phase. Deep learning, and specifically convolutional neural networks (CNNs), emerge as a powerful solution.
 
@@ -37,7 +37,7 @@ where $m$ is the cardinality of the output set. To execute this operation, we ne
 
 However, a linear classifier works only if the dataset is linearly separable. This is why we introduce neural networks.
 
-## Lesson 3 - Loss Functions and Optimization
+## Lecture 3 - Loss Functions and Optimization
 
 Before delving deep into deep learning, it's important to understand how a data-driven training process works. At each training iteration, we aim for a new and improved set of parameters for our classification function. But how and why do we modify these weights? Thanks to the **optimization of the loss function**, a measure of how well our algorithm performs.
 
@@ -101,9 +101,30 @@ and the step size is commonly known as **learning rate** $\eta$.
 
 A different version of this method is **Stochastic Gradient Descent** (SGD).
 
-## Lesson 4 - Introduction to Neaural Networks
-How we saw in the previous lesson, the most useful method used to compute the optimal set of weights W is the gradient descent.
+## Lecture 4 - Introduction to Neaural Networks
+How we saw in the previous Lecture, the most useful method used to compute the optimal set of weights W is the gradient descent.
 Also, we said that it is very difficult to compute when the loss function, which is the function to be minimized, become more complex, as in the neural networks.
 To understand the derivative of a complex function, we can think about the computational graphs. In fact, a function can be represented by a graph where each operation is a node .
 This is a first approach to the **backpropagation**, a recursive application of the chain derivative rule.
 Thanks to this we will able to identify the exact weight responsbile for a bad prediction, and then modify it.
+
+## Lecture 5 - Convolutional Neural Networks
+
+Let's to deep into the Convolutional Neural Networks works but firt from a functional perspective. 
+The main idea is:
+1. Convert the image into a multi-dimensional array;
+2. Use this array as input od a fully connected layer with weights which can be optimized;
+3. Use the output fot the activation function of the output layer and make the prediction we want to do.
+
+![Alt text](image_1.png)
+
+Thi first part of this kind of neural network, the part in which there is the preprocessing of the image and it's translation in a flatten array as input of the fully connected layer is the **Convolutional Layer**.
+We said that the first input is a, for example, a 32x32x3 image, which preserve the spatial structure (each pixel is characterized by the RGB 3-dimensional vector). 
+We need to reduce the structure.
+Firstly we are goiung to user a **Convolutional Filter** (e.g. 5x5x3 filter)which slide over the image spatially, computing dot products.
+Thanks to these operation we are able to reduce the dimensionality and to obtain an **activation map**, which is, in our current example, only 28x28x1.
+![Alt text](image_2.png)
+But we apply more then one filter.
+![Alt text](image_3.png)
+And this Convolutional Layer can be multiplied, one after ohter.
+In this way we are going to create an hiearchy of image's information. The first layer is responsible of low-level feature, the layer more distant is responsble of high-level features.
