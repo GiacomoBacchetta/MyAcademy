@@ -147,4 +147,4 @@ To use more filter has the following consequences:
    - Lower layers capture low-level features, while higher layers focus on high-level features.
 
 ---
-After a sequence of different of several Convolutional Layer, we are ready to pass the information to the last part of our CNN, the **fully connected laer**, which has the purpose to make the effective rpediction, or classification, for the image in input.
+After a sequence of different of several Convolutional Layer, we are ready to pass the information to the last part of our CNN, the **fully connected layer**, which has the purpose to make the effective rpediction, or classification, for the image in input.
