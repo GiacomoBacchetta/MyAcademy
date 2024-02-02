@@ -138,7 +138,7 @@ This layer has two goals:
 But in a **Convolutional Neural Networks**, we have to use more than one filter in a Convolutional Layer:
    - Utilize multiple filters with distinct purposes, such as detecting edges, curves, or analyzing depth.
    - Each filter contributes to extracting specific features from the input image.
-A filter can be set in very different ways: we can set parameters such as *stride* and *padding*. *Stride* refers to the step the filter takes at each iteration while sliding on the Activation Map in input; *Padding* is the border of the Convolutional Filter (usually, we work with zero-padding).
+A filter can be set in very different ways: we can set parameters such as *stride* and *padding*. *Stride* refers to the step the filter takes at each iteration while sliding on the Activation Map in input; *Padding* is the border of the Convolutional Filter (usually, we work with zero-padding) and it is usally used when the dimension of the filter does not fit with the dimension o the input matrix. And we use the *zero-padding* to mantain the same information but in a different wat (or size)
 
 ![Multiple Filters](https://indoml.files.wordpress.com/2018/03/convolution-with-multiple-filters2.png?w=736)
 
@@ -146,5 +146,8 @@ To use more filter has the following consequences:
    - Stack Convolutional Layers to create a hierarchy of information extraction.
    - Lower layers capture low-level features, while higher layers focus on high-level features.
 
----
-After a sequence of different of several Convolutional Layer, we are ready to pass the information to the last part of our CNN, the **fully connected layer**, which has the purpose to make the effective rpediction, or classification, for the image in input.
+After the implementation of each filter, we can pass the output array to the **Pooling Layer**, which makes the representations smaller (*downsample*) and more manageable. The most commonly used *Pooling layer* is the **Max-Pooling**. To implement this layer, we need to define the size of the filter and its stride. *Max Pooling* is not the only option; there are several pooling filters we can use.
+
+![Max Pooling](https://www.researchgate.net/profile/Vanessa-Weber-6/publication/347709000/figure/download/fig9/AS:997256241102853@1614775824853/Example-of-the-process-of-max-pooling-and-upsampling-layers-The-pooling-layer.png)
+
+After a sequence of several Convolutional Layers, we are ready to pass the information to the last part of our CNN, the **fully connected layer**, which has the purpose of making the effective prediction or classification for the input image.
