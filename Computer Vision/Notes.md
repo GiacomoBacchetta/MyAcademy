@@ -148,6 +148,6 @@ To use more filter has the following consequences:
 
 After the implementation of each filter, we can pass the output array to the **Pooling Layer**, which makes the representations smaller (*downsample*) and more manageable. The most commonly used *Pooling layer* is the **Max-Pooling**. To implement this layer, we need to define the size of the filter and its stride. *Max Pooling* is not the only option; there are several pooling filters we can use.
 
-![Max Pooling](https://www.researchgate.net/profile/Vanessa-Weber-6/publication/347709000/figure/download/fig9/AS:997256241102853@1614775824853/Example-of-the-process-of-max-pooling-and-upsampling-layers-The-pooling-layer.png)
+![Max Pooling](https://th.bing.com/th/id/R.4738d8f79d2d381a7d586526b229409e?rik=OJCrwrv5eizlaQ&pid=ImgRaw&r=0)
 
 After a sequence of several Convolutional Layers, we are ready to pass the information to the last part of our CNN, the **fully connected layer**, which has the purpose of making the effective prediction or classification for the input image.
