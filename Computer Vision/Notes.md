@@ -110,7 +110,7 @@ Thanks to this we will able to identify the exact weight responsbile for a bad p
 
 ## Lecture 5 - Convolutional Neural Networks
 
-# Convolutional Neural Networks (CNNs) Overview
+### Convolutional Neural Networks (CNNs) Overview
 
 In the context of Convolutional Neural Networks (CNNs), the primary objective is to process images efficiently for subsequent classification or prediction tasks. Let's delve into the functional perspective of CNNs and their key components.
 
@@ -151,3 +151,54 @@ After the implementation of each filter, we can pass the output array to the **P
 ![Max Pooling](https://th.bing.com/th/id/R.4738d8f79d2d381a7d586526b229409e?rik=OJCrwrv5eizlaQ&pid=ImgRaw&r=0)
 
 After a sequence of several Convolutional Layers, we are ready to pass the information to the last part of our CNN, the **fully connected layer**, which has the purpose of making the effective prediction or classification for the input image.
+
+## Lecture 6 - Training Neural Networks I
+
+### Optimization Algorithms
+
+#### Gradient Descent
+**Gradient Descent** is a foundational optimization algorithm used to minimize the cost function in machine learning models. It works by iteratively moving towards the minimum of the cost function by updating the parameters in the opposite direction of the gradient of the cost function with respect to the parameters.
+
+- **Process**: Calculate the gradient (partial derivatives) of the cost function for the whole training dataset concerning each parameter in the model, and update the parameters simultaneously.
+- **Challenge**: Computationally expensive and slow for large datasets, as it requires calculating the gradients for the whole dataset to make a single update.
+
+#### Stochastic Gradient Descent (SGD)
+**SGD** is a variation of gradient descent that updates the model's parameters using only a single sample or a small subset of the training data at a time. This randomness can help the model to escape local minima.
+
+- **Process**: Instead of calculating the gradients for the whole dataset, SGD randomly selects one data point (or a small batch) to calculate the gradient and update the parameters.
+- **Benefits**: Significantly faster computation per iteration and the ability to escape local minima.
+- **Challenges**: Higher variance in the parameter updates, which can cause the cost function to fluctuate heavily.
+
+#### Mini-batch Gradient Descent
+**Mini-batch Gradient Descent** strikes a balance between the robustness of full-batch gradient descent and the efficiency of SGD. It updates the model's parameters by calculating the gradient of the cost function using a subset of the training data.
+
+- **Batch Size**: Typically ranges from 10 to a few hundred samples. The choice of batch size can significantly affect the convergence speed and training stability.
+- **Benefits**: Reduces the variance of the parameter updates compared to SGD, leading to more stable convergence. More efficient than full-batch gradient descent on large datasets.
+- **Challenges**: Requires tuning of the batch size hyperparameter to find the optimal balance between efficiency and stability.
+
+### Hyperparameter Optimization Techniques
+
+*Hyperparameter optimization* is a crucial step in designing and training neural network models. It involves finding the most effective combination of hyperparameters that yields the best performance. Here's a detailed look at the main techniques for hyperparameter optimization.
+
+#### 1. Grid Search
+**Grid Search** is the most straightforward method for hyperparameter optimization. It systematically works through multiple combinations of hyperparameter values, evaluating each combination to find the best result.
+
+- **Process**: Define a grid of hyperparameter values and exhaustively train models with every combination of these values.
+- **Pros**: Simple to implement and guaranteed to find the best combination within the grid.
+- **Cons**: Computationally expensive and inefficient as the number of hyperparameters increases (curse of dimensionality).
+
+#### 2. Random Search
+**Random Search** selects random combinations of hyperparameters to train the model, rather than exhaustively trying all combinations.
+
+- **Process**: Define a search space as the range of values for each hyperparameter and randomly select combinations to train the model.
+- **Pros**: More efficient than Grid Search, especially when some hyperparameters do not influence the outcome.
+- **Cons**: Still requires a large number of iterations to find optimal hyperparameters and may miss the best combination.
+
+#### 3. Bayesian Optimization
+**Bayesian Optimization** uses a probabilistic model to guide the search for the best hyperparameter combination. It is more efficient than Grid and Random search, especially for high-dimensional spaces.
+
+- **Process**: Build a probabilistic model of the function mapping hyperparameters to the objective evaluated on the validation set. Use this model to select the most promising hyperparameters to evaluate in the true objective function.
+- **Pros**: Efficiently finds the best hyperparameters by focusing on areas predicted to offer improvement.
+- **Cons**: Complexity in implementation and model selection.
+
+## Lecture 7 - Training Neural Networks II
