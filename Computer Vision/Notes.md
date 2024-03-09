@@ -202,3 +202,79 @@ After a sequence of several Convolutional Layers, we are ready to pass the infor
 - **Cons**: Complexity in implementation and model selection.
 
 ## Lecture 7 - Training Neural Networks II
+
+## Lecture 8 - Deep Learning Software
+
+### Programming in GPUs
+
+One of the most crucial computations in the field of Deep Learning is matrix multiplication, where the result of (*m* x *n*) multiplied by (*p* x *q*) yields (*m* x *q*). Although this computation can be time-consuming, it can be optimized by applying parallel computation by row. This is the domain of the **GPU**, which excels in parallel processing, while the **CPU** is limited to sequential computation without computational parallelism.
+
+The same scenario unfolds when discussing *convolution*. Notably, one of the prominent GPUs utilized in AI is ***CUDA*** by NVIDIA, and connectivity can be established through Keras (if available). Additionally, alternatives such as ***OpenCL*** and ***Udacity*** exist.
+
+Another technical challenge in this domain is the situation where our model is often stored on a GPU, while the data reside on a hard drive, or a similar storage medium. How do they communicate with each other? Several possible solutions address this issue:
+
+1. Read all data into RAM.
+2. Utilize an SSD instead of an HDD.
+3. Employ multiple CPU threads to prefetch data.
+
+Implementing these solutions is crucial to prevent bottlenecks caused by slow data retrieval from the dataset.
+
+
+### Deep Learning frameworks
+Moving on, it's essential to recall the concept of the computational graph: during training, we execute a series of operations, measure a certain loss function, and then restart the training to minimize the value of the error by adjusting the weights of the network.
+
+This concept is seamlessly applicable thanks to various *deep learning frameworks* that allow us to:
+
+1. Easily build computational graphs
+2. Effortlessly compute gradients in computational graphs
+3. Run computations efficiently, especially on a GPU
+
+The main frameworks commonly used for these purposes include:
+
+1. **Tensorflow**
+2. **PyTorch**
+3. **Theano**
+
+## Lecture 9 - CNN Architectures
+
+### AlexNet
+
+We start form the first large scale Convolutional Neural Network: the **AlexNet**.
+
+![AlexNet Architecture](https://miro.medium.com/v2/resize:fit:960/0*pJ3o_2zTTNnixhKH.png)
+
+**AlexNet** is a seminal convolutional neural network architecture that played a pivotal role in advancing the field of computer vision. It was developed by Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton and won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) in 2012.
+
+AlexNet consists of eight layers, including five convolutional layers followed by three fully connected layers. Here is a simplified representation of the architecture:
+
+1. **Input Layer:** Accepts the input image data.
+2. **Convolutional Layers (1-5):** Apply convolutional operations to capture spatial hierarchies and features.
+3. **Max-Pooling Layers (1-2):** Perform spatial down-sampling to reduce dimensionality.
+4. **Fully Connected Layers (1-3):** Traditional neural network layers for classification.
+5. **Output Layer:** Produces the final classification results.
+
+### VGGNet
+
+**VGGNet** is a deep convolutional neural network architecture proposed by the Visual Geometry Group at the University of Oxford. It is known for its simplicity and uniform architecture, making it easy to understand and implement. VGGNet achieved notable success in the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) in 2014.
+
+![VGGNet Acrhitecture](https://miro.medium.com/v2/resize:fit:1024/1*hs8Ud3X2LBzf5XMAFTmGGw.jpeg)
+
+VGGNet is characterized by its deep architecture with small receptive fields. The key aspects of its architecture include:
+
+1. **Input Layer:** Accepts the input image data.
+2. **Convolutional Blocks (A-E):** Consists of multiple convolutional layers with 3x3 filters, followed by max-pooling layers.
+3. **Fully Connected Layers (1-3):** Traditional neural network layers for classification.
+4. **Output Layer:** Produces the final classification results.
+
+### GoogLeNet
+
+**GoogLeNet**, also known as Inception, is a deep convolutional neural network architecture developed by researchers at Google. It was introduced to address the challenge of designing deep networks that are both computationally efficient and capable of capturing complex hierarchical features. GoogLeNet won the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) in 2014.
+
+![GoogLeNet Acrhitecture](https://miro.medium.com/v2/resize:fit:1400/0*G47uhQi2slwZI9-o.png)
+
+GoogLeNet is characterized by its unique use of inception modules, which are building blocks that incorporate multiple convolutional and pooling operations at different scales. Key features of its architecture include:
+
+1. **Inception Modules (1-5):** Multiple parallel convolutional and pooling operations within a single module.
+2. **Auxiliary Classifiers:** Auxiliary classifiers are added to intermediate layers during training to mitigate the vanishing gradient problem.
+3. **Global Average Pooling:** Instead of fully connected layers, GoogLeNet uses global average pooling to reduce parameters and control overfitting.
+4. **Bottleneck Layers:** 1x1 convolutions are employed as bottleneck layers to reduce computational cost.
